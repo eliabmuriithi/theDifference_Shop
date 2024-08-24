@@ -364,6 +364,19 @@ def billing_info(request):
 
 
 def payment_success(request):
+    # delete the browser cart
+    # get the cart as the first step
+    # get the billing_form
+    cart = Cart(request)
+    cart_products = cart.get_prods
+    quantities = cart.get_quants
+    totals = cart.cart_total()
+
+    # delete the cart
+    for key in list(request.session.keys()):
+        if key == "session_key":
+            # delete the key
+            del request.session[key]
     # adjust to go back home or proceed to cart.
     return render(request, "payment/payment_success.html", {})
 
