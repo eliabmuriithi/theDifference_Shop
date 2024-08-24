@@ -293,10 +293,12 @@ def billing_info(request):
 
 
 def payment_success(request):
+    # adjust to go back home or proceed to cart.
     return render(request, "payment/payment_success.html", {})
 
 
 def payment_failed(request):
+    # adjust to back home, btn retry. (retry to start over gain)
     return render(request, "payment/payment_failed.html", {})
 
 

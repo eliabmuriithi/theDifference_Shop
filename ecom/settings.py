@@ -8,8 +8,9 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# load env variable
-# load_dotenv()
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,8 +25,13 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "thedifferenceshop-production.up.railway.app",
     "https://thedifferenceshop-production.up.railway.app",
+    "localhost",
+    "561f-102-216-84-78.ngrok-free.app",
 ]
-CSRF_TRUSTED_ORIGINS = ["https://thedifferenceshop-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://thedifferenceshop-production.up.railway.app",
+    "https://561f-102-216-84-78.ngrok-free.app",
+]
 
 
 # Application definition
@@ -89,8 +95,8 @@ DATABASES = {
         "NAME": "railway",
         "USER": "postgres",
         # localhost
-        # "PASSWORD": os.environ.get("DB_PASSWORD_YO"),
-        "PASSWORD": os.environ["DB_PASSWORD_YO"],
+        "PASSWORD": os.environ.get("DB_PASSWORD_YO"),
+        # "PASSWORD": os.environ["DB_PASSWORD_YO"],
         "HOST": "roundhouse.proxy.rlwy.net",
         "PORT": "45191",
     }
